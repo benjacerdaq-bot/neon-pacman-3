@@ -7,6 +7,20 @@ const overlay = document.querySelector('#overlay');
 const messageEl = document.querySelector('#message');
 const startBtn = document.querySelector('#startBtn');
 const musicBtn = document.querySelector('#musicBtn');
+const installBtn = document.querySelector('#installBtn');
+let installPrompt;
+addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); installPrompt=e; installBtn.hidden=false;
+});
+installBtn.addEventListener('click',async()=>{
+  if(!installPrompt) return;
+  installPrompt.prompt(); await installPrompt.userChoice;
+  installPrompt=null; installBtn.hidden=true;
+});
+addEventListener('appinstalled',()=>{ installBtn.hidden=true; });
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
+}
 
 // Banda sonora chiptune original generada por el navegador: no requiere archivos externos.
 let audioCtx, masterGain, leadOsc, bassOsc, musicTimer, musicOn = true, musicStep = 0;

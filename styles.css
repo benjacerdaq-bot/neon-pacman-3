@@ -39,5 +39,7 @@ canvas { display:block; width:100%; height:auto; border-radius:11px; background:
 .mobile-controls button[data-dir="down"] { grid-column:2; grid-row:2; }
 .mobile-controls button[data-dir="right"] { grid-column:3; grid-row:2; }
 footer { text-align:center; color:#515b82; font-size:11px; letter-spacing:1.5px; margin-top:10px; }
+.install-btn { display:block; margin:12px auto 0; border:1px solid var(--pink); border-radius:30px; padding:10px 18px; color:#fff; background:#27132d; font:700 12px inherit; letter-spacing:1px; cursor:pointer; box-shadow:0 0 16px #ff4fa344; }
+.install-btn[hidden] { display:none; }
 @media (pointer:coarse), (max-width:600px) { footer { display:none; } .game-shell { padding-top:10px; } }
 @media (max-width:480px) { header { align-items:center; } .stats { gap:7px; } .stats small { font-size:8px; } .brand { font-size:17px; } .music-btn { padding:6px; font-size:9px; } }
