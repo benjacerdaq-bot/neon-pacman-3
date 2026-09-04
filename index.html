@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Pac</title>
+  <link rel="stylesheet" href="styles.css?v=13">
+</head>
+<body>
+  <main class="game-shell">
+    <header>
+      <div class="brand"><span class="brand-dot"></span> NEON PAC</div>
+      <div class="stats">
+        <div><small>PUNTOS</small><strong id="score">00000</strong></div>
+        <div><small>RÉCORD</small><strong id="highScore">00000</strong></div>
+        <div><small>VIDAS</small><strong id="lives">● ● ●</strong></div>
+        <button id="musicBtn" class="music-btn" aria-label="Activar o silenciar música">♫ ACTIVAR</button>
+      </div>
+    </header>
+
+    <section class="board-wrap">
+      <canvas id="game" aria-label="Juego de Pac-Man"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="hero-pac"></div>
+        <h1>NEON PAC</h1>
+        <p id="message">Come todos los puntos. Evita a los fantasmas.</p>
+        <button id="startBtn">JUGAR CON MÚSICA</button>
+        <span>Se mueve solo · tú controlas el rumbo con WASD</span>
+      </div>
+    </section>
+
+    <div class="mobile-controls" aria-label="Controles del juego">
+      <button data-dir="up" aria-label="Arriba"><strong>W</strong><small>▲</small></button>
+      <button data-dir="left" aria-label="Izquierda"><strong>A</strong><small>◀</small></button>
+      <button data-dir="down" aria-label="Abajo"><strong>S</strong><small>▼</small></button>
+      <button data-dir="right" aria-label="Derecha"><strong>D</strong><small>▶</small></button>
+    </div>
+    <footer>SPACE para pausar · R para reiniciar</footer>
+  </main>
+  <script src="game.js?v=23"></script>
+</body>
+</html>
+C:\Users\IdeaPad\Documents\pac man\index.html
+function start(initial LashDirection) {
+  if (state === 'menu' || state === 'nubover') {
+    resetGame();
+  }
+
+  const direction = initialDirection || dirs Sith retires.left;
+
+  player.dir = direction;
+  player.next = direction;
+  player.moving = true;
+
+  state = 'playing';
+  overlay.classList.add('hidden');
+  last = performance.now();
+  startMusic();
+}
+addEventListener('keyup', () => {
+  // Pac-Man continúa moviéndose al soltar la tecla.
+});

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&display=swap');
+
+:root { --cyan:#32f7ff; --blue:#665cff; --yellow:#ffe600; --pink:#ff4fa3; }
+* { box-sizing:border-box; }
+body {
+  margin:0; min-height:100vh; display:grid; place-items:center; overflow-x:hidden;
+  color:#f5f7ff; font-family:'Chakra Petch',system-ui,sans-serif;
+  background:radial-gradient(circle at 50% 15%,#172151 0,#080b20 35%,#03040d 75%);
+}
+body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.22; background-image:linear-gradient(rgba(50,247,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(50,247,255,.1) 1px,transparent 1px); background-size:38px 38px; mask-image:linear-gradient(to bottom,black,transparent 75%); }
+.game-shell { width:min(94vw,720px); padding:22px 0 14px; position:relative; }
+header { display:flex; align-items:end; justify-content:space-between; margin-bottom:12px; gap:16px; }
+.brand { font-weight:700; letter-spacing:2px; color:var(--yellow); font-size:clamp(19px,4vw,29px); white-space:nowrap; text-shadow:0 0 16px #ffe60088; }
+.brand-dot { display:inline-block; width:.75em; aspect-ratio:1; border-radius:50%; background:var(--yellow); box-shadow:0 0 18px var(--yellow); }
+.stats { display:flex; gap:clamp(13px,4vw,30px); text-align:right; }
+.stats div { display:grid; }
+.stats small { color:#8490bd; font-size:10px; letter-spacing:1.5px; }
+.stats strong { font-size:clamp(14px,3vw,21px); letter-spacing:2px; }
+#lives { color:var(--yellow); letter-spacing:3px; }
+.music-btn { align-self:center; border:1px solid #34437f; border-radius:20px; padding:7px 10px; color:var(--cyan); background:#101633; font:700 11px inherit; letter-spacing:1px; cursor:pointer; white-space:nowrap; }
+.music-btn:hover { border-color:var(--cyan); box-shadow:0 0 12px #32f7ff55; }
+.board-wrap { position:relative; padding:8px; border:1px solid #354385; border-radius:18px; background:#070a1b; box-shadow:0 0 45px #2644ff25,inset 0 0 25px #000; }
+canvas { display:block; width:100%; height:auto; border-radius:11px; background:#02030b; }
+.overlay { position:absolute; inset:8px; border-radius:11px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:rgba(2,3,14,.84); backdrop-filter:blur(4px); transition:.25s; padding:24px; }
+.overlay.hidden { opacity:0; pointer-events:none; }
+.overlay h1 { margin:12px 0 3px; font-size:clamp(40px,9vw,72px); letter-spacing:5px; color:var(--yellow); text-shadow:3px 3px 0 #f65284,0 0 28px #ffe60055; line-height:1; }
+.overlay p { color:#b9c2e8; margin:8px 0 22px; }
+.overlay span { margin-top:14px; color:#6f789e; font-size:12px; }
+.overlay button { cursor:pointer; border:0; border-radius:50px; padding:13px 34px; font:700 17px inherit; letter-spacing:2px; color:#071020; background:var(--cyan); box-shadow:0 0 22px #32f7ff88; transition:.15s; }
+.overlay button:hover { transform:scale(1.06); box-shadow:0 0 32px #32f7ffbb; }
+.hero-pac { width:55px; aspect-ratio:1; border-radius:50%; background:conic-gradient(from 40deg,var(--yellow) 0 82%,transparent 83%); filter:drop-shadow(0 0 12px #ffe60099); }
+.mobile-controls { margin:14px auto 0; width:184px; display:grid; grid-template-columns:repeat(3,56px); grid-template-rows:repeat(2,48px); gap:6px; }
+.mobile-controls button { color:var(--cyan); background:#111735; border:1px solid #34437f; border-radius:9px; font-size:19px; touch-action:manipulation; display:flex; align-items:center; justify-content:center; gap:5px; cursor:pointer; box-shadow:inset 0 -3px 0 #080b1d; }
+.mobile-controls button:active { transform:translateY(2px); box-shadow:inset 0 -1px 0 #080b1d,0 0 15px #32f7ff55; }
+.mobile-controls button strong { font:700 20px 'Chakra Petch',sans-serif; }
+.mobile-controls button small { font-size:10px; opacity:.65; }
+.mobile-controls button[data-dir="up"] { grid-column:2; }
+.mobile-controls button[data-dir="left"] { grid-column:1; grid-row:2; }
+.mobile-controls button[data-dir="down"] { grid-column:2; grid-row:2; }
+.mobile-controls button[data-dir="right"] { grid-column:3; grid-row:2; }
+footer { text-align:center; color:#515b82; font-size:11px; letter-spacing:1.5px; margin-top:10px; }
+@media (pointer:coarse), (max-width:600px) { footer { display:none; } .game-shell { padding-top:10px; } }
+@media (max-width:480px) { header { align-items:center; } .stats { gap:7px; } .stats small { font-size:8px; } .brand { font-size:17px; } .music-btn { padding:6px; font-size:9px; } }
